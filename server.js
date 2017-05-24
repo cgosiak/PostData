@@ -35,6 +35,33 @@ app.set('port', port);
  */
 const server = http.createServer(app);
 
+const io = require('socket.io')(server);
+
+io.sockets.on('connection', function (socket) {
+
+  console.log("New Connection Established");
+
+  socket.on('room', function(room) {
+    console.log("Joining Room " + room);
+    socket.join(room);
+  });
+
+  socket.on('post-event', function (data) {
+    var message = {
+      title: "Time Received: " + data.originTime,
+      content: data.postData
+    };
+
+    io.sockets.in(data.endpoint).emit("new-post", message);
+  });
+
+  // Log Angular Events to Console
+  socket.on('log', (logMessage) => {
+    console.log("INFO: " + logMessage);
+  })
+
+});
+
 /**
  * Listen on provided port, on all network interfaces.
  */

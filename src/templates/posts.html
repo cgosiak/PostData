@@ -1,0 +1,6 @@
+<div id="postContent">
+	<div class="postView" *ngFor="let post of posts">
+		<div class="postTitle">{{post.title}}</div>
+		<div class="postContent">{{post.content | json}}</div>
+	</div>
+</div>

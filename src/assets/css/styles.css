@@ -1,0 +1,22 @@
+#postContent {
+	width: 80%;
+	margin: 0 auto;
+	padding-bottom: 2%;
+}
+
+.postView {
+	margin-top: 2%;
+	border: 1px solid #B2DFDB;
+	box-shadow: 5px 5px 2.5px #00897B;
+}
+
+.postTitle {
+	padding: 2%;
+	font-size: 1.5em;
+	background-color: #B2DFDB;
+}
+
+.postContent {
+	padding: 2%;
+	font-size: 1.2em;
+}
